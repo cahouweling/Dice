@@ -1,22 +1,39 @@
+int total = 0;
+int avg = 0;
+float davg = 0;
+int loop = 0;
 void setup()
 {
-	size(325,300);
+	size(700,700);
 	noLoop();
 }
 void draw()
 {
+	int  ctotal = 0;
 	background(197);
-	Die juan = new Die(50,100);
-	Die two = new Die(175,100);
-	juan.roll();
-	two.roll();
-	juan.show();
-	two.show();
-	int total = juan.num + two.num;
+	for(int y = 75; y <= 600; y += 125)
+	{
+		for(int x = 50; x <= 600; x += 125)
+		{
+		  Die juan = new Die(x,y);
+		  juan.roll();
+	      juan.show();
+          ctotal = ctotal + juan.num;
+		}
+        
+	}	
+	loop = loop + 1;
+	total = total + ctotal;
+	avg = total/loop;
+	davg = (float)ctotal/25;
 	textSize(20);
-	text("Click to Roll Dice",80,50);
-	textSize(15);
-	text("Outcome : " + total,125,250);
+    text("Click to Roll Dice",80,50);
+   	textSize(15);
+    text("Current Outcome : " + ctotal,300,50);    
+    text("Average Outcome : " + avg,500,50);
+    text("Current Average Outcome per Die: " + davg,300,30);
+    ctotal = 0;
+	
 }
 void mousePressed()
 {
@@ -81,3 +98,15 @@ class Die //models one single dice cube
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
