@@ -46,7 +46,7 @@ public void draw()
     text("Click to Roll Dice",80,50);
    	textSize(15);
     text("Current Outcome : " + ctotal,300,50);    
-    text("Average Outcome : " + avg,500,50);
+    text("Average Outcome : " + (int)avg,500,50);
     text("Current Average Outcome per Die: " + davg,300,30);
     ctotal = 0;
 	
